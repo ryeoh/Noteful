@@ -1,6 +1,6 @@
 .sideBar-itm {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .sideBar-nav {
@@ -30,4 +30,10 @@
 
 .addFolder-button:hover {
     background-color: lightgray;
+}
+
+.sideBarNav-link.active {
+    background-color: gray;
+    padding: 10px 1.5em;
+    border-radius: 3px;
 }
