@@ -1,28 +1,27 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import STORE from './store';
+import './Nav.css';
 
-function Nav() {
+function Nav(routeProps) {
+    console.log(routeProps);
   return (
     <nav>
-        <ul className='sideBar-nav'>
-            {STORE.folders.map(folder =>
-                <li key={folder.id}>
-                    <NavLink 
-                    className='sideBarNav-link'
-                    to={`/folder/${folder.id}`}>
-                        {folder.name}
-                    </NavLink>
-                </li>
-               )}
-            <li>
-                <NavLink 
-                className='addFolder-button'
-                to=''>
-                    Add folder
-                </NavLink>
-            </li>
-        </ul>
+      <ul className='sideBar-nav'>
+        {routeProps.folders.map(folder =>
+          <li className='sideBar-itm' key={folder.id}>
+            <NavLink 
+              className='sideBarNav-link'
+              to={`/folder/${folder.id}`}>
+                {folder.name}
+            </NavLink>
+          </li>
+        )}
+      </ul> <br />
+        <NavLink 
+          className='addFolder-button'
+          to=''>
+            Add folder
+        </NavLink>
     </nav>
   );
 }

@@ -21,9 +21,9 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-        <Link to={`/`}>
-          <h1>Noteful</h1>
-        </Link>
+          <Link className='home-link' to={`/`}>
+            <h1>Noteful</h1>
+          </Link>
         </header>
 
         <Route 
@@ -36,10 +36,13 @@ class App extends Component {
             );
             return (
               <>
-                <Nav />
+                <Nav
+                  {...routeProps}
+                  folders={this.state.folders}
+                />
                 <NoteList
-                    {...routeProps}
-                    notes={notesForFolder}
+                  {...routeProps}
+                  notes={notesForFolder}
                 />
               </>
             )}} 
@@ -64,7 +67,9 @@ class App extends Component {
             );
             return (
               <>
-                <Nav />
+                <Nav 
+                  {...routeProps}
+                  folders={this.state.folders}/>
                 <NoteList
                     {...routeProps}
                     notes={notesForFolder}
@@ -79,9 +84,8 @@ class App extends Component {
           render={(routeProps) => {
             return (
               <NoteContent {...routeProps}
-            note={this.state.notes.find(note => note.id === routeProps.match.params.noteId)} />)}} 
-        />
-
+              note={this.state.notes.find(note => note.id === routeProps.match.params.noteId)} />)}} 
+          />
       </div>
     );
   }

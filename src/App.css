@@ -1,25 +1,36 @@
 .App {
   text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: white;
+  grid-area: header;
+  margin: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+h1 {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 40px;
+}
+
+h1:hover {
+  color:  rgb(125, 150, 159);
+}
+
+.home-link {
+  text-decoration: none;
+  color: black;
 }
 
 nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 10vh;
-  background: rgb(125, 150, 159);
-  color: white;
-}
-
-.sideBar-nav {
-  width: 40%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
-}
-
-.sideBarNav-link, .addFolder-button {
-  text-decoration: none;
+  float: left;
+  background-color: rgb(125, 150, 159);
+  height: 270vh;
+  width: 35%;
   color: white;
 }

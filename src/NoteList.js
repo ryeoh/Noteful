@@ -1,15 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { format } from 'date-fns';
 import Note from './Note';
-// import STORE from './store';
+import './NoteList.css';
 
 function NoteList(routeProps) {
 return (
     <div className='noteList'>
       <ul>
         {routeProps.notes.map(note =>
-          <li key={note.id}>
+          <li className='noteList-itm' key={note.id}>
             <Note 
               id={note.id}
               name={note.name}
@@ -17,7 +15,11 @@ return (
           </li>
         )}
       </ul>
-        <button>Add note</button>
+      <div className='add-btn-section'>
+        <button className='addNote-btn'>
+          Add note
+        </button>
+      </div>
     </div>
   );
 }

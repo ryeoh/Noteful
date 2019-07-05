@@ -1,0 +1,22 @@
+.note-link {
+    text-decoration: none;
+    color: white;
+}
+
+.date-modified {
+    color: white
+}
+
+.note-link:hover {
+    color: rgb(125, 150, 159);
+}
+
+.delete-note-btn {
+    background-color: white;
+    color: black;
+    padding: .5em 1.5em;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-top: 10px;
+}

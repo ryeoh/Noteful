@@ -1,0 +1,23 @@
+.note-list-itm {
+    background-color: gray;
+    padding: 1em;
+    border: 1px black;
+    font-size: 18px;
+    height: 150px;
+}
+
+.selected-note-content {
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+}
+
+.selected-note-content > h2 {
+    padding-top: 2px;
+    text-align: center;
+}
+
+.selected-note-content > p {
+    padding-left: 245px;
+}
