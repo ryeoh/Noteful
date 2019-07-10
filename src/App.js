@@ -7,6 +7,7 @@ import { Route, Link } from 'react-router-dom';
 import NotefulContext from './NotefulContext';
 
 import './App.css';
+import NoteContext from './NoteContext';
 
 class App extends Component {
   state = {
@@ -51,8 +52,26 @@ class App extends Component {
 
   }
   
-  render() {
+  componentDidMount() {
+    Promise.all([
+      fetch('http://localhost:9090/folders'),
+      fetch('http://localhost:9090/notes')
+    ])
+      .then(([foldersRes, notesRes]) => {
+        if (!foldersRes.ok) 
+          return foldersRes.json().then(e => Promise.reject(e));
+        if(!notesRes.ok) 
+          return notesRes.json().then(e => Promise.reject(e));
+        
+        return Promise.all([foldersRes.json(), notesRes.json()]);
+      })
+      .then(([folders, notes]) => {this.setState({folders, notes});
+      })
+      .catch(error => {this.setState({error});
+      });
+  }
 
+  render() {
     const contextValue = {
       folders: this.state.folders,
       notes: this.state.notes,

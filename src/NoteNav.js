@@ -1,21 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {findFolder, findNote} from './helpful-constants';
+import NoteContext from './NoteContext';
 
+class NoteNav extends Component {
+  static defaultProps = {
+    history: {
+      goBack: () => {}
+    },
+    match: {
+      params: {}
+    }
+  }
 
-function NoteNav(routeProps) {
-  console.log(routeProps);
-  
-  return (
-    <nav>
-        <h3 className='noteNav-folderName'>
-            {routeProps.folder.name}
-        </h3>
-        <button 
-            className='go-back-btn'
-            onClick={() => routeProps.history.goBack()}>
-            Go back
-        </button>
-    </nav>
-  );
+  static contextType = NoteContext; 
+
+  render() {
+    const {notes, folders} = this.context;
+    const {noteId} = this.props.match.params;
+    const note = findNote(notes, noteId) || {};
+    const folder = findFolder(folders, note.folderId);
+    console.log(folder);
+    return (
+      <nav>
+          <h3 className='noteNav-folderName'>
+              {/* {folder.name} */}
+          </h3>
+          <button 
+              className='go-back-btn'
+              onClick={() => this.props.history.goBack()}>
+              Go back
+          </button>
+      </nav>
+    );
+  }
 }
 
 export default NoteNav;

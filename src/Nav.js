@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import NoteContext from './NoteContext';
 import './Nav.css';
 import NotefulContext from './NotefulContext';
 
