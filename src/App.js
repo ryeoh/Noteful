@@ -20,6 +20,7 @@ class App extends Component {
   }
   
   componentDidMount() {
+    this.setState({loading: true});
     Promise.all([
       fetch('http://localhost:9090/folders'),
       fetch('http://localhost:9090/notes')

@@ -4,9 +4,10 @@ import NoteContext from './NoteContext';
 import './Nav.css';
 
 class Nav extends Component {
+  static contextType = NoteContext;
+
   render() {
     const {folders=[]} = this.context;
-
     return (
         <nav>
           <ul className='sideBar-nav'>
