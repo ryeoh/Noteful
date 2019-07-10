@@ -15,38 +15,6 @@ class App extends Component {
     error: null
   };
 
-  componentDidMount() {
-    fetch('http://localhost:9090/folders', {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json',
-      }
-    })
-    .then(foldersRes => {
-      if (!foldersRes.ok) {
-        throw new Error(foldersRes.status)
-      }
-      return foldersRes.json()
-    })
-    .then(([folders]) => {this.setState({ folders })})
-    .catch(error => {this.setState({ error })});
-
-    fetch('http://localhost:9090/notes', {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json',
-      }
-    })
-    .then(notesRes => {
-      if (!notesRes.ok) {
-        throw new Error(notesRes.status)
-      }
-      return notesRes.json()
-    })
-    .then(([notes]) => {this.setState({ notes })})
-    .catch(error => {this.setState({ error })});
-  }
-
   deleteNote() {
 
   }
