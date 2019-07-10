@@ -84,13 +84,14 @@ class App extends Component {
 
           <Route 
             exact path='/note/:noteId' 
-            render={(routeProps) => {
-              return (
-                <NoteNav {...routeProps}
-                folder={this.state.folders.find(folder => 
-                  folder.id === (this.state.notes.find(note => 
-                    note.id === routeProps.match.params.noteId).folderId))}
-                />)}}
+            component={NoteNav}
+            // render={(routeProps) => {
+            //   return (
+            //     <NoteNav {...routeProps}
+            //     folder={this.state.folders.find(folder => 
+            //       folder.id === (this.state.notes.find(note => 
+            //         note.id === routeProps.match.params.noteId).folderId))}
+            //     />)}}
             />
 
           <Route 
@@ -119,10 +120,11 @@ class App extends Component {
 
           <Route 
             exact path='/note/:noteId' 
-            render={(routeProps) => {
-              return (
-                <NoteContent {...routeProps}
-                note={this.state.notes.find(note => note.id === routeProps.match.params.noteId)} />)}} 
+            component={NoteContent}
+            // render={(routeProps) => {
+            //   return (
+            //     <NoteContent {...routeProps}
+            //     note={this.state.notes.find(note => note.id === routeProps.match.params.noteId)} />)}} 
           />
         </NoteContext.Provider>
       </div>

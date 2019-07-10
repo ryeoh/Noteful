@@ -15,16 +15,18 @@ class NoteList extends Component {
   render() {
     const { notes=[], folders=[] } = this.context;
 
-    const filterNotes = (notes=[], folderId) => (
-      (!folderId)
+    const { folderId } = this.props.match.params;
+
+    const filterNotes = (notes=[], folderId)    => ((!folderId)
         ? notes
         : notes.filter(note => note.folderId === folderId)
       )
-    const { folderId } = folders.match.params;
     const notesForFolder = filterNotes(
       notes,
       folderId
     );
+
+    // console.log(folders);
 
     return (
       <div className='noteList'>

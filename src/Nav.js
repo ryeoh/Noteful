@@ -8,7 +8,6 @@ class Nav extends Component {
     const {folders=[]} = this.context;
 
     return (
-      <NoteContext.Consumer>
         <nav>
           <ul className='sideBar-nav'>
             {folders.map(folder =>
@@ -27,7 +26,6 @@ class Nav extends Component {
                 Add folder
             </NavLink>
         </nav>
-      </NoteContext.Consumer>
     );
   }
 }

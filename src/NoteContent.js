@@ -17,7 +17,7 @@ class NoteContent extends Component {
     const {notes} = this.context;
     const {noteId} = this.props.match.params;
     const note = findNote(notes, noteId);
-    console.log(note.content);
+    console.log(note);
     return (
       <div className='note-list-itm'>
         {/* <Note 
