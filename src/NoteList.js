@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Note from './Note';
-import NotefulContext from './NotefulContext';
+import NoteContext from './NoteContext';
 import './NoteList.css';
 
 class NoteList extends Component {
@@ -10,7 +10,7 @@ class NoteList extends Component {
     }
   }
 
-  static contextType = NotefulContext;
+  static contextType = NoteContext;
 
   render() {
     const { notes=[], folders=[] } = this.context;

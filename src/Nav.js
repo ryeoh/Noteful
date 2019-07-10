@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import NoteContext from './NoteContext';
 import './Nav.css';
-import NotefulContext from './NotefulContext';
 
 class Nav extends Component {
   render() {
     const {folders=[]} = this.context;
 
     return (
-      <NotefulContext.Consumer>
+      <NoteContext.Consumer>
         <nav>
           <ul className='sideBar-nav'>
             {folders.map(folder =>
@@ -28,7 +27,7 @@ class Nav extends Component {
                 Add folder
             </NavLink>
         </nav>
-      </NotefulContext.Consumer>
+      </NoteContext.Consumer>
     );
   }
 }

@@ -4,7 +4,6 @@ import NoteList from './NoteList';
 import NoteContent from './NoteContent';
 import NoteNav from './NoteNav';
 import { Route, Link } from 'react-router-dom';
-import NotefulContext from './NotefulContext';
 
 import './App.css';
 import NoteContext from './NoteContext';
@@ -86,7 +85,7 @@ class App extends Component {
           </Link>
         </header>
 
-        <NotefulContext.Provider value={contextValue}>
+        <NoteContext.Provider value={contextValue}>
           <Route 
             exact path='/' 
             component={Nav}
@@ -157,7 +156,7 @@ class App extends Component {
                 <NoteContent {...routeProps}
                 note={this.state.notes.find(note => note.id === routeProps.match.params.noteId)} />)}} 
           />
-        </NotefulContext.Provider>
+        </NoteContext.Provider>
       </div>
     );
   }
