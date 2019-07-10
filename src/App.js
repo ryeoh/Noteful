@@ -15,8 +15,11 @@ class App extends Component {
     error: null
   };
 
-  deleteNote() {
-
+  deleteNote = noteId => {
+    const newNotesList = this.state.notes.filter(note => note.id !== noteId)
+    this.setState({
+     notes: newNotesList
+    })
   }
   
   componentDidMount() {
@@ -58,25 +61,7 @@ class App extends Component {
           <Route 
             exact path='/' 
             component={Nav}
-            // render={routeProps => {
-            //   const {folderId} = routeProps.match.params;
-            //   const notesForFolder = filterNotes(
-            //       this.state.notes,
-            //       folderId
-            //   );
-            //   return (
-            //     <>
-            //       <Nav
-            //         {...routeProps}
-            //         folders={this.state.folders}
-            //       />
-            //       <NoteList
-            //         {...routeProps}
-            //         notes={notesForFolder}
-            //       />
-            //     </>
-            //   )}} 
-            />
+          />
           <Route 
             exact path='/' 
             component={NoteList}
@@ -86,32 +71,11 @@ class App extends Component {
           <Route 
             exact path='/note/:noteId' 
             component={NoteNav}
-            // render={(routeProps) => {
-            //   return (
-            //     <NoteNav {...routeProps}
-            //     folder={this.state.folders.find(folder => 
-            //       folder.id === (this.state.notes.find(note => 
-            //         note.id === routeProps.match.params.noteId).folderId))}
-            //     />)}}
             />
 
           <Route 
             path='/folder/:folderId'
             component={Nav}
-            // render={routeProps => {
-              
-            //   return (
-            //     <>
-            //       <Nav 
-            //         {...routeProps}
-            //         folders={this.state.folders}/>
-            //       <NoteList
-            //           {...routeProps}
-            //           notes={notesForFolder}
-            //       />
-            //     </>
-              // );
-          // }}
           />
 
           <Route 
@@ -122,10 +86,6 @@ class App extends Component {
           <Route 
             exact path='/note/:noteId' 
             component={NoteContent}
-            // render={(routeProps) => {
-            //   return (
-            //     <NoteContent {...routeProps}
-            //     note={this.state.notes.find(note => note.id === routeProps.match.params.noteId)} />)}} 
           />
         </NoteContext.Provider>
       </div>

@@ -15,15 +15,15 @@ class NoteNav extends Component {
   static contextType = NoteContext; 
 
   render() {
-    const folderName = () => 
-      (folder !== null)
-      ? <span>{folder.name}</span>
-      : <span>Loading...</span>;
-
     const {notes, folders} = this.context;
     const {noteId} = this.props.match.params;
     const note = findNote(notes, noteId) || {};
     const folder = findFolder(folders, note.folderId);
+
+    const folderName = () => 
+      (folder !== undefined)
+      ? <span>{folder.name}</span>
+      : <span>Loading...</span>;
 
     return (
       <nav>

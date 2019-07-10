@@ -1,22 +1,60 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
+import NoteContext from './NoteContext';
 import './Note.css';
+
+function deleteNoteRequest(noteId, callback) {
+  fetch(`http://localhost:9090/notes/${noteId}`, {
+    method: 'DELETE',
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+    .then(res => {
+      if (!res.ok) {
+        return res.json().then(error => {
+          throw error
+        })
+      }
+      return res.json()
+    })
+    .then(data => {
+      // call the callback when the request is successful
+      // this is where the App component can remove it from state
+      callback(noteId)
+    })
+    .catch(error => {
+      console.error(error)
+    })
+}
 
 function Note(props) {
   return (
-      <div className='note'>
-        <Link className='note-link' to={`/note/${props.id}`}>
+    <NoteContext.Consumer>
+      {(context) => (
+        <div className='note'>
+          <Link className='note-link' to={`/note/${props.id}`}>
             <h2>{props.name}</h2>
-        </Link>
-        <div>
-            <span className='date-modified'>Date modified on {format((props.modified), 'Do MMM YYYY')}</span>
+          </Link>
+            <div>
+              <span className='date-modified'>Date modified on {format((props.modified), 'Do MMM YYYY')}</span>
+            </div>
+            <button
+              className='delete-note-btn'
+              onClick={() => {
+                deleteNoteRequest(
+                  props.id,
+                  context.deleteNote
+                )
+              }}
+            >
+              Delete note
+            </button>
         </div>
-        <button className='delete-note-btn'>
-            Delete note
-        </button>
-      </div>
-    );
-  }
+      )}
+    </NoteContext.Consumer>
+  );
+}
   
   export default Note;

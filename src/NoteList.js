@@ -26,8 +26,6 @@ class NoteList extends Component {
       folderId
     );
 
-    // console.log(folders);
-
     return (
       <div className='noteList'>
         <ul>
