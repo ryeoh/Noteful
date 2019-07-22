@@ -29,7 +29,7 @@ class NoteContent extends Component {
             <p>{note.content}</p>
           </div>
         </>)
-      : <div>Loading...</div>;
+      : this.props.history.push('/');
 
     return (
       <div className='note-list-itm'>

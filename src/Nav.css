@@ -1,3 +1,7 @@
+nav {
+    grid-area: 2 / col1-start / first-line / -5;
+}
+
 .sideBar-itm {
     padding-top: 10px;
     padding-bottom: 10px;

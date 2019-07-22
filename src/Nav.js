@@ -23,7 +23,7 @@ class Nav extends Component {
           </ul> <br />
             <NavLink 
               className='addFolder-button'
-              to=''>
+              to='/add-folder'>
                 Add folder
             </NavLink>
         </nav>

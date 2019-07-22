@@ -1,3 +1,8 @@
+.noteList {
+    grid-area: main;
+
+}
+
 ul {
     list-style: none;
     margin-top: 0;
@@ -11,7 +16,7 @@ ul {
 }
 
 .addNote-btn {
-    background-color: white;
+    background-color: lightgray;
     color: black;
     padding: .5em 1.5em;
     text-decoration: none;

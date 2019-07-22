@@ -3,7 +3,10 @@ import Nav from './Nav';
 import NoteList from './NoteList';
 import NoteContent from './NoteContent';
 import NoteNav from './NoteNav';
+import AddFolder from './AddFolder';
+import AddNote from './AddNote';
 import { Route, Link } from 'react-router-dom';
+import ErrorBoundary from './ErrorBoundary';
 
 import './App.css';
 import NoteContext from './NoteContext';
@@ -21,9 +24,21 @@ class App extends Component {
      notes: newNotesList
     })
   }
+
+  addFolder = folder => {
+    this.setState({
+      folders: [ ...this.state.folders, folder ]
+    })
+  }
+
+  addNote = note => {
+    this.setState({
+      notes: [ ...this.state.notes, note ]
+    })
+  }
   
   componentDidMount() {
-    this.setState({loading: true});
+    // this.setState({loading: true});
     Promise.all([
       fetch('http://localhost:9090/folders'),
       fetch('http://localhost:9090/notes')
@@ -46,8 +61,10 @@ class App extends Component {
     const contextValue = {
       folders: this.state.folders,
       notes: this.state.notes,
-      deleteNote: this.deleteNote
-    }
+      deleteNote: this.deleteNote,
+      addFolder: this.addFolder,
+      addNote: this.addNote
+    };
 
     return (
       <div className="App">
@@ -56,37 +73,53 @@ class App extends Component {
             <h1>Noteful</h1>
           </Link>
         </header>
-
+        
         <NoteContext.Provider value={contextValue}>
-          <Route 
-            exact path='/' 
-            component={Nav}
-          />
-          <Route 
-            exact path='/' 
-            component={NoteList}
-          />
-
-
-          <Route 
-            exact path='/note/:noteId' 
-            component={NoteNav}
+          
+          <ErrorBoundary>
+            <Route 
+              exact path='/' 
+              component={Nav}
             />
+            <Route 
+              exact path='/' 
+              component={NoteList}
+            />
+          </ErrorBoundary>
 
-          <Route 
-            path='/folder/:folderId'
-            component={Nav}
-          />
+          <ErrorBoundary>
+            <Route 
+              path='/folder/:folderId'
+              component={Nav}
+            />
+            <Route 
+              path='/folder/:folderId'
+              component={NoteList}
+            />
+          </ErrorBoundary>
 
-          <Route 
-            path='/folder/:folderId'
-            component={NoteList}
-          />
+          <ErrorBoundary>
+            <Route 
+              path='/note/:noteId' 
+              component={NoteNav}
+            />
+            <Route 
+              path='/note/:noteId' 
+              component={NoteContent}
+            />
+          </ErrorBoundary>
 
-          <Route 
-            exact path='/note/:noteId' 
-            component={NoteContent}
-          />
+          <ErrorBoundary>
+            <Route  
+              path='/add-folder'
+              component={AddFolder} 
+            />
+            <Route 
+              path='/add-note'
+              component={AddNote}
+            />
+          </ErrorBoundary>
+
         </NoteContext.Provider>
       </div>
     );

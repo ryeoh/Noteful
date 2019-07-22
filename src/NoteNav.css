@@ -1,0 +1,13 @@
+.noteNav-folderName {
+    font-size: 30px;
+}
+
+.go-back-btn {
+    background-color: white;
+    color: black;
+    padding: .5em 1.5em;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-top: 10px;
+}

@@ -20,8 +20,6 @@ function deleteNoteRequest(noteId, callback) {
       return res.json()
     })
     .then(data => {
-      // call the callback when the request is successful
-      // this is where the App component can remove it from state
       callback(noteId)
     })
     .catch(error => {

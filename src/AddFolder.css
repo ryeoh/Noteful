@@ -1,0 +1,41 @@
+.AddFolder {
+    width: 80%;
+    height: 400px;
+    background-color: lightblue;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.AddFolder > h2 {
+    padding-top: 100px;
+}
+
+form {
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+input {
+    height: 25px;
+    width: 200px;
+}
+
+.AddFolder__buttons {
+    margin-top: 30px;
+}
+
+.AddFolder__buttons > button {
+    background-color: white;
+    color: black;
+    padding: .5em 1.5em;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 14px;
+    margin: 0 10px;
+}
+
+button[disabled] {
+    background-color: lightgray;
+    color: gray;
+}

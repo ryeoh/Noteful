@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {findFolder, findNote} from './helpful-constants';
 import NoteContext from './NoteContext';
+import './NoteNav.css';
 
 class NoteNav extends Component {
   static defaultProps = {
