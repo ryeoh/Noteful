@@ -55,4 +55,10 @@ function Note(props) {
   );
 }
   
-  export default Note;
+export default Note;
+
+Note.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  modified: PropTypes.instanceOf(Date)
+}
