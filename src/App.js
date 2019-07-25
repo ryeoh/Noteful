@@ -67,7 +67,7 @@ class App extends Component {
     };
 
     return (
-      <div className="App">
+      <div role="application" className="App">
         <header>
           <Link className='home-link' to={`/`}>
             <h1>Noteful</h1>

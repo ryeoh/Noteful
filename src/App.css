@@ -10,12 +10,13 @@ header {
   margin: 0;
   padding-top: 40px;
   padding-bottom: 40px;
+  font-family: 'Nothing You Could Do', cursive;
 }
 
 h1 {
   display: table-cell;
   vertical-align: middle;
-  font-size: 40px;
+  font-size: 60px;
 }
 
 h1:hover {

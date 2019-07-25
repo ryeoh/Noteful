@@ -18,7 +18,7 @@ class NoteContent extends Component {
     const {noteId} = this.props.match.params;
     const note = findNote(notes, noteId);
     const noteContent = () => (note !== undefined)
-      ? (<>
+      ? (<div className='selected-note'>
           <Note 
             id={note.id}
             name={note.name}
@@ -28,7 +28,7 @@ class NoteContent extends Component {
             <h2>{note.name}</h2>
             <p>{note.content}</p>
           </div>
-        </>)
+        </div>)
       : this.props.history.push('/');
 
     return (

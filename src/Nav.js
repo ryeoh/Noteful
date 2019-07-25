@@ -25,6 +25,11 @@ class Nav extends Component {
               className='addFolder-button'
               to='/add-folder'>
                 Add folder
+            </NavLink> <br />
+            <NavLink 
+              className='nav-addNote-btn'
+              to= '/add-note'>
+              Add note
             </NavLink>
         </nav>
     );

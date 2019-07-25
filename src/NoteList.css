@@ -1,6 +1,6 @@
 .noteList {
     grid-area: main;
-
+    margin-left: 32%;
 }
 
 ul {
@@ -9,10 +9,19 @@ ul {
 }
 
 .noteList-itm {
-    background-color: gray;
+    background-color: whitesmoke;
     padding: 1em;
-    border: 1px black;
     font-size: 18px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.noteList-itm:nth-child(1) {
+    margin-top: 0;
+}
+
+.noteList-itm:nth-child(2n) {
+    background-color: lightgray;
 }
 
 .addNote-btn {
@@ -21,8 +30,13 @@ ul {
     padding: .5em 1.5em;
     text-decoration: none;
     border-radius: 3px;
-    font-size: 20px;
+    font-size: 18px;
     align-items: center;
+    font-family: 'Covered By Your Grace', cursive;
+}
+
+.addNote-btn:hover {
+    background-color: gray;
 }
 
 .add-btn-section {

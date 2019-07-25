@@ -1,12 +1,14 @@
 .AddNote {
-    height: 105vw;
+    height: 100vw;
     background-color: lightblue;
     padding-top: 20px;
     margin: 20px;
+    font-family: 'Nanum Pen Script', cursive;
 }
 
 .AddNote > h2 {
     margin: 0;
+    font-size: 30px;
 }
 
 .addNote__form {
@@ -19,14 +21,15 @@
 
 textarea {
     width: 80%;
-    height: 50vh;
+    height: 40vh;
 }
 
 select {
     width: 120px;
     height: 25px;
-    font-size: 14px;
+    font-size: 18px;
     padding-left: 10px;
+    font-family: 'Nanum Pen Script', cursive;
 }
 
 label {
@@ -36,7 +39,12 @@ label {
 .AddNote__buttons > button {
     width: 120px;
     height: 30px;
-    font-size: 14px;
+    font-size: 20px;
     margin: 2px 10px;
+    font-family: 'Nanum Pen Script', cursive;
+}
 
+.AddNote__error {
+    color: red;
+    font-size: 26px;
 }

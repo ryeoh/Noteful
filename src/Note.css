@@ -1,10 +1,14 @@
 .note-link {
     text-decoration: none;
-    color: white;
+    color: black;
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 24px;
 }
 
 .date-modified {
-    color: white
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
 }
 
 .note-link:hover {
@@ -17,6 +21,11 @@
     padding: .5em 1.5em;
     text-decoration: none;
     border-radius: 3px;
-    font-size: 14px;
+    font-size: 18px;
     margin-top: 10px;
+    font-family: 'Covered By Your Grace', cursive;
+}
+
+.delete-note-btn:hover {
+    background-color: rgb(125, 150, 159);
 }

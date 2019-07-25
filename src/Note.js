@@ -37,7 +37,7 @@ function Note(props) {
             <h2>{props.name}</h2>
           </Link>
             <div>
-              <span className='date-modified'>Date modified on {format((props.modified), 'Do MMM YYYY')}</span>
+              <span className='date-modified'>Modified on {format((props.modified), 'Do MMM YYYY')}</span>
             </div>
             <button
               className='delete-note-btn'

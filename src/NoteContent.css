@@ -1,23 +1,32 @@
+
 .note-list-itm {
-    background-color: gray;
+    background-color: whitesmoke;
     padding: 1em;
-    border: 1px black;
     font-size: 18px;
-    height: 150px;
+    border-radius: 10px;
+    margin: 10px;
+    margin-left: 37%;
+    margin-top: 0;
 }
 
 .selected-note-content {
     background-color: white;
     padding-left: 20px;
     padding-right: 20px;
+    margin-top: 20px;
     text-align: left;
+    font-family: 'Nanum Pen Script', cursive;
 }
 
 .selected-note-content > h2 {
-    padding-top: 2px;
+    padding-top: 20px;
+    margin: 0;
     text-align: center;
+    font-size: 40px;
 }
 
 .selected-note-content > p {
-    padding-left: 245px;
+    padding: 20px;
+    margin: 0;
+    font-size: 25px;
 }

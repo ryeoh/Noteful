@@ -51,7 +51,6 @@ class AddNote extends Component {
 
   validateContent() {
     const content = this.state.content.value.trim();
-    console.log(this.state.content)
     if (content.length === 0) {
         return 'Note cannot be empty.';
     }
@@ -79,7 +78,6 @@ class AddNote extends Component {
         folderId: folder.id,
         content: content.value
     };
-    console.log(note);
 
     this.setState({error: null})
 
@@ -153,15 +151,18 @@ class AddNote extends Component {
                         id='name'
                         placeholder='Title of note'
                         onChange={e => this.updateNoteName(e.target.value)}
-                        required />
+                        aria-required='true' />
                 </div>
 
                 <div>
                     <textarea 
+                        role='textbox'
                         name='content' 
                         id='content'
+                        aria-multiline='true'
                         onChange={e => this.updateNoteContent(e.target.value)}
-                        required
+                        aria-label='content of note'
+                        aria-required='true'
                         >
                     </textarea>
                 </div>

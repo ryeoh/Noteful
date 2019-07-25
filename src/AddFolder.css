@@ -5,15 +5,17 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    font-family: 'Nanum Pen Script', cursive;
 }
 
 .AddFolder > h2 {
-    padding-top: 100px;
+    padding-top: 80px;
+    font-size: 30px;
 }
 
 form {
     margin-top: 30px;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 input {
@@ -31,11 +33,18 @@ input {
     padding: .5em 1.5em;
     text-decoration: none;
     border-radius: 3px;
-    font-size: 14px;
+    font-size: 18px;
     margin: 0 10px;
+    font-family: 'Nanum Pen Script', cursive;
 }
 
 button[disabled] {
     background-color: lightgray;
     color: gray;
+}
+
+.AddFolder__error {
+    margin: 10px;
+    color: red;
+    font-size: 24px;
 }
